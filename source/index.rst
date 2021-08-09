@@ -10,9 +10,7 @@ Welcome to DIAS Firewall How To's documentation!
    :maxdepth: 2
    :caption: Contents:
    
-   Introduction
-   Requirements
-   Instalation and configuration
+   introduction
 
 
 
