@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to DIAS Firewall How To's documentation!
+Welcome to DIAS UMFST How To's documentation!
 ================================================
 
 The current page serves as the official documentation developed by UMFST (University of Medicine, Pharmacy, Science and Technology of Targu Mures), as part of the 

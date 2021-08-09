@@ -1,2 +1,2 @@
-Secure logging
-==============
+4. Secure logging
+=================
