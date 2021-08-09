@@ -9,12 +9,11 @@ Welcome to DIAS Firewall How To's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+   
+   introduction
+   setup
+   rules
+   logging
+   
 
 
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

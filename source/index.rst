@@ -11,6 +11,9 @@ Welcome to DIAS Firewall How To's documentation!
    :caption: Contents:
    
    introduction
-
+   setup
+   rules
+   logging
+   
 
 
