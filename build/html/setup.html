@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Firewall and IDS Setup &mdash; DIAS Firewall How To 09.08.2021 documentation</title>
+  <title>2. Firewall and IDS Setup &mdash; DIAS Firewall How To 09.08.2021 documentation</title>
   
 
   
@@ -42,7 +42,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Rule language" href="rules.html" />
-    <link rel="prev" title="Introduction" href="introduction.html" /> 
+    <link rel="prev" title="1. Introduction" href="introduction.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,9 +89,13 @@
             
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="introduction.html#requirements">Requirements</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Firewall and IDS Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Firewall and IDS Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">2.1 Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#helper-processes">2.2 Helper processes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-file">2.3 Configuration file</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="rules.html">Rule language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="logging.html">Secure logging</a></li>
 </ul>
@@ -142,7 +146,7 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Firewall and IDS Setup</li>
+      <li>2. Firewall and IDS Setup</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -162,7 +166,35 @@
            <div itemprop="articleBody">
             
   <div class="section" id="firewall-and-ids-setup">
-<h1>Firewall and IDS Setup<a class="headerlink" href="#firewall-and-ids-setup" title="Permalink to this headline">¶</a></h1>
+<h1>2. Firewall and IDS Setup<a class="headerlink" href="#firewall-and-ids-setup" title="Permalink to this headline">¶</a></h1>
+<p>The Firewall and IDS (Intrusion Detection System) basically function on the same <strong>Rule Processing Engine</strong> (denoted in the following as RPE). Depending on how the rules are written in it’s associated <strong>rule file</strong>, the RPE will function as a Stateful Firewall, analyzing CAN frames based on their identifier field, or as a Intrusion Detection System, by performing a byte-level inspection in the CAN frame data field.</p>
+<p>This means, that the Firewall/IDS is mainly composed in a single process capable of acting in a specific way, depending on it’s configuration.</p>
+<div class="section" id="installation">
+<h2>2.1 Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>The Firewall/IDS can be install in two separate ways. Manually, by cloning the source code, install the dependencies and run the build bash script. And secondly, and more convenient, as a Debian package.</p>
+<p>For the manual installation the README.md should be followed from the <a class="reference external" href="https://github.com/terilenard/dias-firewall">git repository</a> .</p>
+<p>For the Debian package, the following .deb file must pe downloaded and installed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget https://github.com/terilenard/dias-firewall
+</pre></div>
+</div>
+<p>and</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo dpkg -i dias-firewall.deb
+</pre></div>
+</div>
+</div>
+<div class="section" id="helper-processes">
+<h2>2.2 Helper processes<a class="headerlink" href="#helper-processes" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="configuration-file">
+<h2>2.3 Configuration file<a class="headerlink" href="#configuration-file" title="Permalink to this headline">¶</a></h2>
+<p>A configuration file is used by the Firewall/IDS process to store a set of parameters. The configuration file is name <em>diasfw.cfg</em>, and can be found in <em>/etc/…</em>. It contains the followings:</p>
+<ul class="simple">
+<li><p><em>ruleFile</em> : the location of the XML file, containing the Firewall/IDS set of rules.</p></li>
+<li><p><em>secureLog</em> : boolean value under the form of a string. If <em>“true”</em> the process will leverage the Secure Logging process to generate signed logs. Else, if it is <em>“false”</em> the logs are sent to stdout (file logging, syslog?).</p></li>
+<li><p><em>canPipe</em>: path to a named piped used to communicate with a helper process that reads and preprocesses CAN frames.</p></li>
+<li><p><em>tpmPipe</em>: path to a named pipe used to communicate with the Secure Logging process.</p></li>
+</ul>
+</div>
 </div>
 
 
@@ -172,7 +204,7 @@
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="rules.html" class="btn btn-neutral float-right" title="Rule language" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="introduction.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="introduction.html" class="btn btn-neutral float-left" title="1. Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
