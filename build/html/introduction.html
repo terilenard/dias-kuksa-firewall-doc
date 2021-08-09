@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Introduction &mdash; DIAS Firewall How To 09.08.2021 documentation</title>
+  <title>1. Introduction &mdash; DIAS Firewall How To 09.08.2021 documentation</title>
   
 
   
@@ -89,8 +89,13 @@
             
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#requirements">1.1 Requirements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hardware-and-operating-system">1.1.1 Hardware and Operating System</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="setup.html">Firewall and IDS Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rules.html">Rule language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="logging.html">Secure logging</a></li>
@@ -142,7 +147,7 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Introduction</li>
+      <li>1. Introduction</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -162,10 +167,30 @@
            <div itemprop="articleBody">
             
   <div class="section" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-</div>
+<h1>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>In order to use the current manual, there are several requirements that must be meet, in terms of hardware and software.</p>
 <div class="section" id="requirements">
-<h1>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h1>
+<h2>1.1 Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="hardware-and-operating-system">
+<h3>1.1.1 Hardware and Operating System<a class="headerlink" href="#hardware-and-operating-system" title="Permalink to this headline">¶</a></h3>
+<p>The current manual can be followed on one of the following options:</p>
+<ol class="arabic simple">
+<li><p>Raspberry Pi 3 Model B with Raspbian</p></li>
+<li><p>Raspberry Pi 4 (recommended) with Rasbian</p></li>
+<li><p>Ubuntu Virtual machine</p></li>
+</ol>
+<p>The rest of the steps, were tested on Raspberry Pi’s 3 and 4. If a Ubuntu VM is chosen, some configurations may, a CAN interface may not be available, thus only a virtual one could be used. This is not a issue since the modules described in the following are meant to work with virtual equivalents for: CAN interfaces (virtual CAN) and Trusted Platform Module (virtual TPM).</p>
+<p>1.1.2 CAN interface</p>
+<p>A CAN (Controller Area Network) interface is required in order to run the Firewall and Intrusion Detection System described later.
+The options here are:</p>
+<ol class="arabic simple">
+<li><p>Physical Hardware</p></li>
+<li><p>Virtual Interface</p></li>
+</ol>
+<p>A guide describing how to setup both a physical connection to a CAN controller (available for Raspberry Pis), and one to a virtual CAN interface (available for Raspberry Pis and Ubuntu) can be found <a class="reference external" href="https://github.com/terilenard/dias-kuksa-umfst/wiki/How-to-set-up-CAN-interfaces">here</a> .</p>
+<p>Additional information, for different hardware configurations can be found on the <a class="reference external" href="https://dias-kuksa-doc.readthedocs.io/en/latest/contents/hwsetup.html">Getting Started with Kuksa: Hardware Setup page</a> .</p>
+</div>
+</div>
 </div>
 
 
