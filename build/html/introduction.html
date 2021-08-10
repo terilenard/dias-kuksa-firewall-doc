@@ -41,8 +41,8 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Firewall and IDS Setup" href="setup.html" />
-    <link rel="prev" title="Welcome to DIAS Firewall How To’s documentation!" href="index.html" /> 
+    <link rel="next" title="2. Firewall and IDS Setup" href="setup.html" />
+    <link rel="prev" title="Welcome to DIAS UMFST How To’s documentation!" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -90,15 +90,12 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1. Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#requirements">1.1 Requirements</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#hardware-and-operating-system">1.1.1 Hardware and Operating System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#requirements">1.1 Requirements</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="setup.html">Firewall and IDS Setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rules.html">Rule language</a></li>
-<li class="toctree-l1"><a class="reference internal" href="logging.html">Secure logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">2. Firewall and IDS Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rules.html">3. Rule language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging.html">4. Secure logging</a></li>
 </ul>
 
             
@@ -171,8 +168,6 @@
 <p>In order to use the current manual, there are several requirements that must be meet, in terms of hardware and software.</p>
 <div class="section" id="requirements">
 <h2>1.1 Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="hardware-and-operating-system">
-<h3>1.1.1 Hardware and Operating System<a class="headerlink" href="#hardware-and-operating-system" title="Permalink to this headline">¶</a></h3>
 <p>The current manual can be followed on one of the following options:</p>
 <ol class="arabic simple">
 <li><p>Raspberry Pi 3 Model B with Raspbian</p></li>
@@ -185,11 +180,11 @@
 The options here are:</p>
 <ol class="arabic simple">
 <li><p>Physical Hardware</p></li>
-<li><p>Virtual Interface</p></li>
+<li><p>Virtual Interface (recommended)</p></li>
 </ol>
 <p>A guide describing how to setup both a physical connection to a CAN controller (available for Raspberry Pis), and one to a virtual CAN interface (available for Raspberry Pis and Ubuntu) can be found <a class="reference external" href="https://github.com/terilenard/dias-kuksa-umfst/wiki/How-to-set-up-CAN-interfaces">here</a> .</p>
+<p>For testing purposes, only a virtual CAN interface is required. The steps to set up a virtual CAN can be found <a class="reference external" href="https://github.com/terilenard/dias-kuksa-umfst/wiki/How-to-set-up-CAN-interfaces#how-to-set-up-virtual-can-interface">in this section</a> . After following this steps, a virtual CAN <em>van0</em> should be visible after running <em>ifconfig</em> which can is used to simulate a single CAN bus.</p>
 <p>Additional information, for different hardware configurations can be found on the <a class="reference external" href="https://dias-kuksa-doc.readthedocs.io/en/latest/contents/hwsetup.html">Getting Started with Kuksa: Hardware Setup page</a> .</p>
-</div>
 </div>
 </div>
 
@@ -199,8 +194,8 @@ The options here are:</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="setup.html" class="btn btn-neutral float-right" title="Firewall and IDS Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to DIAS Firewall How To’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="setup.html" class="btn btn-neutral float-right" title="2. Firewall and IDS Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to DIAS UMFST How To’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
