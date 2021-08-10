@@ -19,6 +19,7 @@ The reader is advised to follow the sections below in sequence, since there are 
    
    introduction
    setup
+   run
    rules
    logging
 

@@ -1,12 +1,12 @@
-3. Rule language
+4. Rule language
 ================
 
-3.1 Terms and keywords
+4.1 Terms and keywords
 ----------------------
 
-3.2 Rules chains
+4.2 Rules chains
 ----------------
 
-3.3 State chains
+4.3 State chains
 ----------------
 

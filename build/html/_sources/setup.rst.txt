@@ -1,14 +1,14 @@
 2. Firewall and IDS Setup
 =========================
 
-The Firewall and IDS (Intrusion Detection System) basically function on the same **Rule Processing Engine** (denoted in the following as RPE). Depending on how the rules are written in it's associated **rule file**, the RPE will function as a Stateful Firewall, analyzing CAN frames based on their identifier field, or as a Intrusion Detection System, by performing a byte-level inspection in the CAN frame data field.
+The Firewall (FW) and IDS (Intrusion Detection System) basically function on the same **Rule Processing Engine** (denoted in the following as RPE). Depending on how the rules are written in it's associated **rule file**, the RPE will function as a Stateful Firewall, analyzing sequences of CAN frames based on their identifier field, or as a Intrusion Detection System, by performing a byte-level inspection in the CAN frame data field.
 
-This means, that the Firewall/IDS is mainly composed in a single process capable of acting in a specific way, depending on it's configuration.
+This means, that the FW/IDS is mainly composed in a single process capable of acting in a specific way, depending on it's configuration.
 
 2.1 Installation
 ----------------
 
-The Firewall/IDS can be install in two separate ways. Manually, by cloning the source code, install the dependencies and run the build bash script. And secondly, and more convenient, as a Debian package.
+The FW/IDS can be install in two separate ways. Manually, by cloning the source code, install the dependencies and run the build bash script. And secondly, and more convenient, as a Debian package.
 
 For the manual installation the README.md should be followed from the `git repository <https://github.com/terilenard/dias-firewall>`_ .
 
@@ -23,6 +23,7 @@ and
 .. code-block:: bash
 
    sudo dpkg -i dias-firewall.deb   
+   
 
 2.2 Helper processes
 --------------------

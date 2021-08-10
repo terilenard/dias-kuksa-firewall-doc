@@ -41,7 +41,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Rule language" href="rules.html" />
+    <link rel="next" title="3. Simulation" href="run.html" />
     <link rel="prev" title="1. Introduction" href="introduction.html" /> 
 </head>
 
@@ -97,8 +97,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#using-the-service">2.4 Using the service</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="rules.html">Rule language</a></li>
-<li class="toctree-l1"><a class="reference internal" href="logging.html">Secure logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run.html">3. Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rules.html">4. Rule language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging.html">5. Secure logging</a></li>
 </ul>
 
             
@@ -168,11 +169,11 @@
             
   <div class="section" id="firewall-and-ids-setup">
 <h1>2. Firewall and IDS Setup<a class="headerlink" href="#firewall-and-ids-setup" title="Permalink to this headline">¶</a></h1>
-<p>The Firewall and IDS (Intrusion Detection System) basically function on the same <strong>Rule Processing Engine</strong> (denoted in the following as RPE). Depending on how the rules are written in it’s associated <strong>rule file</strong>, the RPE will function as a Stateful Firewall, analyzing CAN frames based on their identifier field, or as a Intrusion Detection System, by performing a byte-level inspection in the CAN frame data field.</p>
-<p>This means, that the Firewall/IDS is mainly composed in a single process capable of acting in a specific way, depending on it’s configuration.</p>
+<p>The Firewall (FW) and IDS (Intrusion Detection System) basically function on the same <strong>Rule Processing Engine</strong> (denoted in the following as RPE). Depending on how the rules are written in it’s associated <strong>rule file</strong>, the RPE will function as a Stateful Firewall, analyzing sequences of CAN frames based on their identifier field, or as a Intrusion Detection System, by performing a byte-level inspection in the CAN frame data field.</p>
+<p>This means, that the FW/IDS is mainly composed in a single process capable of acting in a specific way, depending on it’s configuration.</p>
 <div class="section" id="installation">
 <h2>2.1 Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<p>The Firewall/IDS can be install in two separate ways. Manually, by cloning the source code, install the dependencies and run the build bash script. And secondly, and more convenient, as a Debian package.</p>
+<p>The FW/IDS can be install in two separate ways. Manually, by cloning the source code, install the dependencies and run the build bash script. And secondly, and more convenient, as a Debian package.</p>
 <p>For the manual installation the README.md should be followed from the <a class="reference external" href="https://github.com/terilenard/dias-firewall">git repository</a> .</p>
 <p>For the Debian package, the following .deb file must pe downloaded and installed:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget https://github.com/terilenard/dias-firewall
@@ -212,7 +213,7 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="rules.html" class="btn btn-neutral float-right" title="Rule language" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="run.html" class="btn btn-neutral float-right" title="3. Simulation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="introduction.html" class="btn btn-neutral float-left" title="1. Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
