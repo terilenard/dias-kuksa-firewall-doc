@@ -29,7 +29,7 @@ Research
 
 To be updated...
 
-Awknowledgement
+Acknowledgement
 ---------------
 
 This work was funded by the European Union’s Horizon 2020 Research and Innovation Programme through DIAS project under Grant Agreement No. 814951. 
@@ -38,4 +38,4 @@ This document reflects only the author’s view and the Agency is not responsibl
 Authors
 -------
 
-Authors can found and contacted on: **https://nislab.umfst.ro/**
+Authors can be found and contacted on: **https://nislab.umfst.ro/**
