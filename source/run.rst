@@ -37,6 +37,8 @@ Once we have the log file we can proceed to replaying the traffic as follows:
 .. code-block:: bash
 
   canplayer -I logfilename.log
+* At this point the Pycan module should capture and forward the traffic to the Firewall. This can be observed in the log files for both modules.
+
 
 3.3 Capturing events
 --------------------
