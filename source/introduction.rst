@@ -28,7 +28,7 @@ The options here are:
 
 A guide describing how to setup both a physical connection to a CAN controller (available for Raspberry Pis), and one to a virtual CAN interface (available for Raspberry Pis and Ubuntu) can be found `here <https://github.com/terilenard/dias-kuksa-umfst/wiki/How-to-set-up-CAN-interfaces>`_ . 
 
-For testing purposes, two virtual CAN interface are required. The steps to set up a virtual CAN can be found `in this section <https://github.com/terilenard/dias-kuksa-umfst/wiki/How-to-set-up-CAN-interfaces#how-to-set-up-virtual-can-interface>`_ . After following this steps, a virtual CAN *vcan0* should be visible after running *ifconfig* which can is used to simulate a single CAN bus. The previous steps should be repeated, by replacing *vcan0* with *vcan1* to create the second virtual CAN interface *vcan1*
+For testing purposes, two virtual CAN interface are required. The steps to set up a virtual CAN can be found `in this section <https://github.com/terilenard/dias-kuksa-umfst/wiki/How-to-set-up-CAN-interfaces#how-to-set-up-virtual-can-interface>`_ . After following this steps, a virtual CAN *vcan0* should be visible after running *ifconfig* which can is used to simulate a single CAN bus. The previous steps should be repeated, by replacing *vcan0* with *vcan1*, to create the second virtual CAN interface *vcan1*
 
 Additional information, for different hardware configurations can be found on the `Getting Started with Kuksa: Hardware Setup page <https://dias-kuksa-doc.readthedocs.io/en/latest/contents/hwsetup.html>`_ . 
 
