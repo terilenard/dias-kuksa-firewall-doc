@@ -25,9 +25,18 @@ In order to simulate real CAN traffic we will be using *canplayer* to replay an 
 addition information here:
 
   https://dias-kuksa-doc.readthedocs.io/en/latest/contents/sim.html#asc2log-conversion
+ 
+ When converting to .log set the parameter *-can* to VCAN0 if a virtual interface is used and CAN0 if a physical interface is used.
+ 
 
-* Open another ssh session to the RPI and navigate to the trace file directory.
-* 
+Once we have the log file we can proceed to replaying the traffic as follows:
+
+* Open another ssh session to the RPI and navigate to the trace file.
+* Run canplayer 
+
+.. code-block:: bash
+
+  canplayer -I logfilename.log
 
 3.3 Capturing events
 --------------------
