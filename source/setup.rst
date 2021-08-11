@@ -69,7 +69,7 @@ The two services are configured to start in the follwing order: pycan, diasfw. T
    systemctl enable pycan
    systemctl enable diasfw
 
-For demo purposes you can start them manually after installing the *deb* package by running the following:
+For demo purposes you can start them manually, after installing the *deb* package, by running the following:
 
 .. code-block:: bash
 
