@@ -45,3 +45,14 @@ Once you have created diffrent rules, return here and test them out!
 
 3.4 Manual testing
 ------------------
+
+The firewall can also be tested by sending individual frames, for example, once a new rule is created it is not neccessary to replay the whole log file.
+For this porpoise one can use `cansend <https://manpages.debian.org/testing/can-utils/cansend.1.en.html>`_. 
+
+Usage example:
+
+Let`s assume that a new PERMIT and LOG rule was added to the Firewall/IDS, for CID 123, with the conditions that the first payload byte has the value 01 and the second payload byte the value in range 00-AA. Using *cansend* we will send a frame with CID 123 and payload 01 10. The Firewall/IDS will filter the frame and display/log the event.
+
+.. code-block:: bash
+
+ cansend vcan0 123#0110
