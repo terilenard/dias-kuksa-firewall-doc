@@ -62,4 +62,19 @@ The pycan configuration file *config.py* is located in */etc/diasfw/*. The param
 
 After installing the *deb* package, two services will be created, namely *diasfw* and *pycan*. Starting/stopping/restarting the services can be done using *systemctl* (e.g., systemctl start pycan, systemctl start diasfw).
 
+The two services are configured to start in the follwing order: pycan, diasfw. To set them to start at boot-up run the following:
+
+.. code-block:: bash
+
+   systemctl enable pycan
+   systemctl enable diasfw
+
+For demo purposes you can start them manually after installing the *deb* package by running the following:
+
+.. code-block:: bash
+
+   systemctl start pycan
+   systemctl start diasfw
+   
+   
 
