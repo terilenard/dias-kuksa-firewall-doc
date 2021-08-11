@@ -16,7 +16,7 @@ For the Debian package, the following .deb file must pe downloaded and installed
 
 .. code-block:: bash
 
-   wget https://github.com/terilenard/dias-firewall/blob/main/Deb/DIASFirewall_1.0-1_armhf.deb
+   wget https://github.com/terilenard/dias-firewall/raw/main/Deb/DIASFirewall_1.0-1_armhf.deb
 
 and 
 
