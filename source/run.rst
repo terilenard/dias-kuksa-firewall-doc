@@ -20,7 +20,7 @@ In order to simulate real CAN traffic we will be using *canplayer* to replay an 
 
 *can player* only works with .log files, if the trace file is .asc we can use the asc2log_channel_separator.py, found `here <https://github.com/junh-ki/dias_kuksa/tree/master/utils/canplayer>`_ and `addition information here: <https://dias-kuksa-doc.readthedocs.io/en/latest/contents/sim.html#asc2log-conversion>`_
  
-When converting to .log set the parameter *-can* to VCAN0 if a virtual interface is used and CAN0 if a physical interface is used.
+ When converting to .log set the parameter *-can* to VCAN0 if a virtual interface is used and CAN0 if a physical interface is used.
  
 
 Once we have the log file we can proceed to replaying the traffic as follows:
