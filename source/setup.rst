@@ -16,13 +16,15 @@ For the Debian package, the following .deb file must pe downloaded and installed
 
 .. code-block:: bash
 
-   wget https://github.com/terilenard/dias-firewall
+   wget https://github.com/terilenard/dias-firewall/blob/main/Deb/DIASFirewall_1.0-1_armhf.deb
 
 and 
 
 .. code-block:: bash
 
-   sudo dpkg -i dias-firewall.deb   
+   dpkg -i ./DIASFirewall_1.0-1_armhf.deb
+   
+   sudo apt -f install
    
 
 2.2 Helper processes
