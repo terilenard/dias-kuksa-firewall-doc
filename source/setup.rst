@@ -76,5 +76,16 @@ For demo purposes you can start them manually, after installing the *deb* packag
    systemctl start pycan
    systemctl start diasfw
    
-   
+At this point we recommend opening two additional terminals and tailing the log files.
 
+* new terminal 1 (pycan)
+
+.. code-block:: bash
+
+   tail -f /var/log/diasfw/pycan.log
+
+* new terminal 2 (firewall)
+
+.. code-block:: bash
+
+   tail -f /var/log/diasfw/fwoutput.log
