@@ -40,3 +40,5 @@ Once we have the log file we can proceed to replaying the traffic as follows:
 The Firewall will filter the incomming traffic based on the rule file */etc/diasfw/FWRules.xml*.
 For the current demo we have configured rules for each possible action and once the CAN traffic is replayed we will see the actions taken in the firewall log file.
 
+In the next section we will learn how to modify the rule file in order to create new rules or modify the existing ones. 
+Once you have created diffrent rules, return here and test them out!
