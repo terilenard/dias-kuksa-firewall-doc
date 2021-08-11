@@ -10,10 +10,24 @@ In order to run and test that the FW/IDS run accordingly, there are several requ
 * The FW/IDS *pycan* process should be installed (see previous step). The FW/IDS can run without SecureLogging, if it is specified in config file.
 * Two virtual CAN interface (e.g., vcan0 and vcan1) should be present. A physical CAN controller connection is not a must to run the FW/IDS.
 * A CAN trace file (recommended the one, or similar to the one used in `Getting Started with Kuksa <https://dias-kuksa-doc.readthedocs.io/>`_).
-* A replay script, that sends the CAN trace file on to the CAN bus. Recommended the *canplayer* player tool which comes from *can-utils*.
+* A replay script, that sends the CAN trace file on to the CAN bus. 
+Recommended the *canplayer* player tool which comes from *can-utils* (*can-utils* was installed in the previous steps).
 
 3.2 Simulating the CAN
 ----------------------
+
+In order to simulate real CAN traffic we will be using *canplayer* to replay an existing trace on the the first CAN interface (VCAN0 if two virtual interfaces were chosen or CAN0 if a phisical interface was chosen).
+
+*can player* only works with .log files, if the trace file is .asc we can use the asc2log_channel_separator.py, found here:
+  
+  https://github.com/junh-ki/dias_kuksa/tree/master/utils/canplayer
+  
+addition information here:
+
+  https://dias-kuksa-doc.readthedocs.io/en/latest/contents/sim.html#asc2log-conversion
+
+* Open another ssh session to the RPI and navigate to the trace file directory.
+* 
 
 3.3 Capturing events
 --------------------
