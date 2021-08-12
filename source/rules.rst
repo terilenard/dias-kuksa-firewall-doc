@@ -18,34 +18,28 @@ A pattern is defined as an *action rule*, which ultimately is applied on every d
 
 .. code-block:: XML
 
-    <!-- FIREWALL TEST RULE for CID: 124 (hex) -->
-    <rule cid="292" id="test_frame_2" action="PERMIT">
-    </rule>
- 
-    The above rule (FIREWALL) will PERMIT all frames with the CID 292 (124 in hex).
- 
-    <!-- IDS TEST RULE for CID: 123 (hex) -->
-    <rule cid="291" id="test_frame" actrion="DROP">
-      <payload>
-        <expression>
-          <operator type="AND">
-            <byte index="0" value="1"/>
-            <byte index="1" value-range="1..170"/>
-          </operator>
-        </expression>
-      </payload>
-    </rule>
-    
-  The above rule (IDS) will DROP all frames with the CID 291 (123 in hex) if the first byte from the payload
-  has the value 1 and the second byte has a value in the range [1,170]
-  
+      <!-- FIREWALL TEST RULE for CID: 124 (hex) -->
+      <rule cid="292" id="test_frame_2" action="PERMIT">
+      </rule>
 
-4.2 Rules chains
-----------------
+      The above rule (FIREWALL) will PERMIT all frames with the CID 292 (124 in hex).
 
+      <!-- IDS TEST RULE for CID: 123 (hex) -->
+      <rule cid="291" id="test_frame" actrion="DROP">
+        <payload>
+          <expression>
+            <operator type="AND">
+              <byte index="0" value="1"/>
+              <byte index="1" value-range="1..170"/>
+            </operator>
+          </expression>
+        </payload>
+      </rule>
 
+    The above rule (IDS) will DROP all frames with the CID 291 (123 in hex) if the first byte from the payload
+    has the value 1 and the second byte has a value in the range [1,170]
 
-4.3 State chains
+4.2 State chains
 ----------------
 
 .. code-block:: XML
