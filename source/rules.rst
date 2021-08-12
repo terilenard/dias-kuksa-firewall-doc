@@ -42,6 +42,8 @@ A pattern is defined as an *action rule*, which ultimately is applied on every d
 4.2 State chains
 ----------------
 
+In the **state chains** the rules are chained together in sequences of rules, allowing the SFW/IDS to make decisions on a current frame, based on the past received traffic.
+ 
 .. code-block:: XML
 
   <state-chains>
@@ -51,3 +53,5 @@ A pattern is defined as an *action rule*, which ultimately is applied on every d
       <rule id="3-drop" action="DROP"/>
     </chain>
   </state-chains>
+
+ In the above example a state chain is defined, containing 3 chained rules.
