@@ -74,11 +74,19 @@ In order to be able to publish data to the Bosch IoT Hub, the Log Publisher proc
 * cafile: Path to the ca file obtained from Bosch IoT Hub.
 * log_file: Path to the FW/IDS log file (/var/log/diasfw/diasfw.log).
 
-The *cafile* can be downloaded using:
+
+The *tenant_id* can be determined from your Bosch IoT Service subscription  `main page <https://accounts.bosch-iot-suite.com/subscriptions/>`_ under *Show Credentials* . The *auth_id* requires a registered device, which can be accomplished using the `Management API <https://apidocs.bosch-iot-suite.com/>`_ . Once you are on the Mangement API, you must authorized yourself in order to be able to use the API. The *auth_id* together with the *password* will be given once credentials are generated for a device.
+
+Similarly, the host and port can be found under *Show Credentials* on `the main page <https://accounts.bosch-iot-suite.com/subscriptions/>`_.
+
+The *cafile* can be downloaded manually using:
 
 .. code-block:: bash
 
    curl -o iothub.crt https://docs.bosch-iot-suite.com/hub/iothub.crt 
+
+The FW/IDS deb installation, should already configured this.
+
 
 2.4 Using the services
 ----------------------

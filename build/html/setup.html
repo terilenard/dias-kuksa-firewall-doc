@@ -232,10 +232,13 @@ sudo apt -f install
 <li><p>cafile: Path to the ca file obtained from Bosch IoT Hub.</p></li>
 <li><p>log_file: Path to the FW/IDS log file (/var/log/diasfw/diasfw.log).</p></li>
 </ul>
-<p>The <em>cafile</em> can be downloaded using:</p>
+<p>The <em>tenant_id</em> can be determined from your Bosch IoT Service subscription  <a class="reference external" href="https://accounts.bosch-iot-suite.com/subscriptions/">main page</a> under <em>Show Credentials</em> . The <em>auth_id</em> requires a registered device, which can be accomplished using the <a class="reference external" href="https://apidocs.bosch-iot-suite.com/">Management API</a> . Once you are on the Mangement API, you must authorized yourself in order to be able to use the API. The <em>auth_id</em> together with the <em>password</em> will be given once credentials are generated for a device.</p>
+<p>Similarly, the host and port can be found under <em>Show Credentials</em> on <a class="reference external" href="https://accounts.bosch-iot-suite.com/subscriptions/">the main page</a>.</p>
+<p>The <em>cafile</em> can be downloaded manually using:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -o iothub.crt https://docs.bosch-iot-suite.com/hub/iothub.crt
 </pre></div>
 </div>
+<p>The FW/IDS deb installation, should already configured this.</p>
 </div>
 <div class="section" id="using-the-services">
 <h2>2.4 Using the services<a class="headerlink" href="#using-the-services" title="Permalink to this headline">¶</a></h2>
