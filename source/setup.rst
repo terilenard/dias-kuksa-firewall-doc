@@ -37,10 +37,10 @@ The Firewall/IDS process uses two additional helper processes.
 
 
 2.3 Configuration files
-----------------------
+-----------------------
 
 2.3.1 Firewall/IDS
------------------
+------------------
 
 A configuration file is used by the Firewall/IDS process to store a set of parameters. The configuration file named *diasfw.cfg*, and can be found in */etc/diasfw/*. It contains the followings:
 
@@ -50,7 +50,7 @@ A configuration file is used by the Firewall/IDS process to store a set of param
 * *tpmPipe*: path to a named pipe used to communicate with the Secure Logging process.
 
 2.3.2 Pycan
-----------
+-----------
 
 The pycan configuration file *config.py* is located in */etc/diasfw/*. The parameters of interest are the following:
 

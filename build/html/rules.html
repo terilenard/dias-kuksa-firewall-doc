@@ -40,9 +40,7 @@
 
     
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="5. Secure logging" href="logging.html" />
-    <link rel="prev" title="3. Simulation" href="run.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -87,20 +85,15 @@
               
             
             
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="setup.html">2. Firewall and IDS Setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="run.html">3. Simulation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Rule language</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#terms-and-keywords">4.1 Terms and keywords</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#rules-chains">4.2 Rules chains</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#state-chains">4.3 State chains</a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">4. Rule language</a><ul>
+<li><a class="reference internal" href="#terms-and-keywords">4.1 Terms and keywords</a></li>
+<li><a class="reference internal" href="#state-chains">4.2 State chains</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="logging.html">5. Secure logging</a></li>
 </ul>
-
+</div>
             
           
         </div>
@@ -168,14 +161,60 @@
             
   <div class="section" id="rule-language">
 <h1>4. Rule language<a class="headerlink" href="#rule-language" title="Permalink to this headline">¶</a></h1>
+<p>The set of rules contained in the rule file are described using a Extensible Markup Language (XML) based language.
+A pattern is defined as an <em>action rule</em>, which ultimately is applied on every data frame. An <em>action rule</em> can be linked together with a sequence of <em>action rules</em> creating a <em>state-chain</em>. This describes actions that must be taken on a sequence of frames, thus providing contextual detection capabilities. Subsequently, each <em>action rule</em> provides the ability to generate a hierarchical expression, allowing definitions for deep packet inspection rules. This step leverages boolean operators, such as <em>AND</em> and <em>OR</em>, used to link together different expressions.</p>
 <div class="section" id="terms-and-keywords">
 <h2>4.1 Terms and keywords<a class="headerlink" href="#terms-and-keywords" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Rule file</strong> : an XML file containing the definitions for the <em>rules</em>, <em>actions</em> as well as the way the rules are chained togheter creating the <em>rule-chains</em> and <em>state-chains</em></p></li>
+<li><p><strong>Rule</strong> : a pattern searched within an incoming CAN frame. Each rule is bound to an <em>action</em>, which in term triggers an event if a pattern is found.</p></li>
+<li><p><strong>Action</strong> : the operation that must take place as a consequence to a specific event. An action can have one of the four values: PERMIT, DROP, PERMIT-LOG and DROP-LOG.</p></li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p><em>PERMIT</em> : the incomming frame should be allowed to pass.</p></li>
+<li><p><em>DROP</em> : the frame shound not be further forwarded.</p></li>
+<li><p><em>PERMIT-LOG</em> :  the incomming frame should be allowed to pass, additionaly the event should be logged by the Secure Logging unit.</p></li>
+<li><p><em>DROP-LOG</em> : the frame shound not be further forwarded, additionaly the event should be logged by the Secure Logging unit.</p></li>
+</ol>
+</div></blockquote>
+<div class="highlight-XML notranslate"><div class="highlight"><pre><span></span>  <span class="c">&lt;!-- FIREWALL TEST RULE for CID: 124 (hex) --&gt;</span>
+  <span class="nt">&lt;rule</span> <span class="na">cid=</span><span class="s">&quot;292&quot;</span> <span class="na">id=</span><span class="s">&quot;test_frame_2&quot;</span> <span class="na">action=</span><span class="s">&quot;PERMIT&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/rule&gt;</span>
+
+  The above rule (FIREWALL) will PERMIT all frames with the CID 292 (124 in hex).
+
+  <span class="c">&lt;!-- IDS TEST RULE for CID: 123 (hex) --&gt;</span>
+  <span class="nt">&lt;rule</span> <span class="na">cid=</span><span class="s">&quot;291&quot;</span> <span class="na">id=</span><span class="s">&quot;test_frame&quot;</span> <span class="na">actrion=</span><span class="s">&quot;DROP&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;payload&gt;</span>
+      <span class="nt">&lt;expression&gt;</span>
+        <span class="nt">&lt;operator</span> <span class="na">type=</span><span class="s">&quot;AND&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;byte</span> <span class="na">index=</span><span class="s">&quot;0&quot;</span> <span class="na">value=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;byte</span> <span class="na">index=</span><span class="s">&quot;1&quot;</span> <span class="na">value-range=</span><span class="s">&quot;1..170&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/operator&gt;</span>
+      <span class="nt">&lt;/expression&gt;</span>
+    <span class="nt">&lt;/payload&gt;</span>
+  <span class="nt">&lt;/rule&gt;</span>
+
+The above rule (IDS) will DROP all frames with the CID 291 (123 in hex) if the first byte from the payload
+has the value 1 and the second byte has a value in the range [1,170]
+</pre></div>
 </div>
-<div class="section" id="rules-chains">
-<h2>4.2 Rules chains<a class="headerlink" href="#rules-chains" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="state-chains">
-<h2>4.3 State chains<a class="headerlink" href="#state-chains" title="Permalink to this headline">¶</a></h2>
+<h2>4.2 State chains<a class="headerlink" href="#state-chains" title="Permalink to this headline">¶</a></h2>
+<p>In the <strong>state chains</strong> the rules are chained together in sequences of rules, allowing the SFW/IDS to make decisions on a current frame, based on the past received traffic.</p>
+<div class="highlight-XML notranslate"><div class="highlight"><pre><span></span> <span class="nt">&lt;state-chains&gt;</span>
+   <span class="nt">&lt;chain</span> <span class="na">id=</span><span class="s">&quot;state-chain-1&quot;</span><span class="nt">&gt;</span>
+     <span class="nt">&lt;rule</span> <span class="na">id=</span><span class="s">&quot;1-permit&quot;</span> <span class="na">action=</span><span class="s">&quot;PERMIT&quot;</span><span class="nt">/&gt;</span>
+     <span class="nt">&lt;rule</span> <span class="na">id=</span><span class="s">&quot;2-permit&quot;</span> <span class="na">action=</span><span class="s">&quot;PERMIT&quot;</span><span class="nt">/&gt;</span>
+     <span class="nt">&lt;rule</span> <span class="na">id=</span><span class="s">&quot;3-drop&quot;</span> <span class="na">action=</span><span class="s">&quot;DROP&quot;</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;/chain&gt;</span>
+ <span class="nt">&lt;/state-chains&gt;</span>
+
+In the above example a state chain is defined, containing 3 chained rules.
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -184,10 +223,6 @@
            
           </div>
           <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="logging.html" class="btn btn-neutral float-right" title="5. Secure logging" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="run.html" class="btn btn-neutral float-left" title="3. Simulation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-    </div>
 
   <hr/>
 

@@ -1,12 +1,12 @@
 1. Introduction
 ===============
 
-In order to use the current manual, there are several requirements that must be meet, in terms of hardware and software.
+In order to use the current manual, there are several requirements that must be meet, in terms of hardware and software. Similarly to `Getting Started with Kuksa <https://dias-kuksa-doc.readthedocs.io>`_ , a in-vehicle setup is needed, together with a cloud part. 
 
 1.1 Requirements
 ----------------
 
-The current manual can be followed on one of the following options:
+For the in-vehicle setup one of the following options can be used:
 
 1. Raspberry Pi 3 Model B with Raspbian
 
@@ -14,9 +14,18 @@ The current manual can be followed on one of the following options:
 
 3. Ubuntu Virtual machine
 
+As for the cloud setup:
+
+1. A second Raspberry Pi 3/4 with Raspbian
+
+2. Ubuntu Virtual machine
+
+3. Subscription on `Bosch IoT Hub <https://docs.bosch-iot-suite.com/hub/getting-started/subscribe/>`_
+
 The rest of the steps, were tested on Raspberry Pi's 3 and 4. If a Ubuntu VM is chosen, some configurations may, a CAN interface may not be available, thus only a virtual one could be used. This is not a issue since the modules described in the following are meant to work with virtual equivalents for: CAN interfaces (virtual CAN) and Trusted Platform Module (virtual TPM). 
 
 1.1.2 CAN interface
+-------------------
 
 Two CAN (Controller Area Network) interfaces are required in order to run the Firewall and Intrusion Detection System described later.
 The options here are:

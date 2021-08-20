@@ -91,12 +91,13 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1. Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#requirements">1.1 Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#can-interface">1.1.2 CAN interface</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="setup.html">2. Firewall and IDS Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="run.html">3. Simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rules.html">4. Rule language</a></li>
-<li class="toctree-l1"><a class="reference internal" href="logging.html">5. Secure logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cloud.html">5. Cloud Setup</a></li>
 </ul>
 
             
@@ -166,25 +167,33 @@
             
   <div class="section" id="introduction">
 <h1>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>In order to use the current manual, there are several requirements that must be meet, in terms of hardware and software.</p>
+<p>In order to use the current manual, there are several requirements that must be meet, in terms of hardware and software. Similarly to <a class="reference external" href="https://dias-kuksa-doc.readthedocs.io">Getting Started with Kuksa</a> , a in-vehicle setup is needed, together with a cloud part.</p>
 <div class="section" id="requirements">
 <h2>1.1 Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
-<p>The current manual can be followed on one of the following options:</p>
+<p>For the in-vehicle setup one of the following options can be used:</p>
 <ol class="arabic simple">
 <li><p>Raspberry Pi 3 Model B with Raspbian</p></li>
 <li><p>Raspberry Pi 4 (recommended) with Rasbian</p></li>
 <li><p>Ubuntu Virtual machine</p></li>
 </ol>
+<p>As for the cloud setup:</p>
+<ol class="arabic simple">
+<li><p>A second Raspberry Pi 3/4 with Raspbian</p></li>
+<li><p>Ubuntu Virtual machine</p></li>
+<li><p>Subscription on <a class="reference external" href="https://docs.bosch-iot-suite.com/hub/getting-started/subscribe/">Bosch IoT Hub</a></p></li>
+</ol>
 <p>The rest of the steps, were tested on Raspberry Pi’s 3 and 4. If a Ubuntu VM is chosen, some configurations may, a CAN interface may not be available, thus only a virtual one could be used. This is not a issue since the modules described in the following are meant to work with virtual equivalents for: CAN interfaces (virtual CAN) and Trusted Platform Module (virtual TPM).</p>
-<p>1.1.2 CAN interface</p>
-<p>A CAN (Controller Area Network) interface is required in order to run the Firewall and Intrusion Detection System described later.
+</div>
+<div class="section" id="can-interface">
+<h2>1.1.2 CAN interface<a class="headerlink" href="#can-interface" title="Permalink to this headline">¶</a></h2>
+<p>Two CAN (Controller Area Network) interfaces are required in order to run the Firewall and Intrusion Detection System described later.
 The options here are:</p>
 <ol class="arabic simple">
-<li><p>Physical Hardware</p></li>
-<li><p>Virtual Interface (recommended)</p></li>
+<li><p>Physical Hardware + Virtual Interface</p></li>
+<li><p>Two Virtual Interfaces (recommended)</p></li>
 </ol>
 <p>A guide describing how to setup both a physical connection to a CAN controller (available for Raspberry Pis), and one to a virtual CAN interface (available for Raspberry Pis and Ubuntu) can be found <a class="reference external" href="https://github.com/terilenard/dias-kuksa-umfst/wiki/How-to-set-up-CAN-interfaces">here</a> .</p>
-<p>For testing purposes, only a virtual CAN interface is required. The steps to set up a virtual CAN can be found <a class="reference external" href="https://github.com/terilenard/dias-kuksa-umfst/wiki/How-to-set-up-CAN-interfaces#how-to-set-up-virtual-can-interface">in this section</a> . After following this steps, a virtual CAN <em>vcan0</em> should be visible after running <em>ifconfig</em> which can is used to simulate a single CAN bus.</p>
+<p>For testing purposes, two virtual CAN interface are required. The steps to set up a virtual CAN can be found <a class="reference external" href="https://github.com/terilenard/dias-kuksa-umfst/wiki/How-to-set-up-CAN-interfaces#how-to-set-up-virtual-can-interface">in this section</a> . After following this steps, a virtual CAN <em>vcan0</em> should be visible after running <em>ifconfig</em> which can is used to simulate a single CAN bus. The previous steps should be repeated, by replacing <em>vcan0</em> with <em>vcan1</em>, to create the second virtual CAN interface <em>vcan1</em></p>
 <p>Additional information, for different hardware configurations can be found on the <a class="reference external" href="https://dias-kuksa-doc.readthedocs.io/en/latest/contents/hwsetup.html">Getting Started with Kuksa: Hardware Setup page</a> .</p>
 </div>
 </div>

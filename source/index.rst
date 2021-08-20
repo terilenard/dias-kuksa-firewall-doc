@@ -4,12 +4,12 @@
    contain the root `toctree` directive.
 
 Welcome to DIAS UMFST How To's documentation!
-================================================
+=============================================
 
 The current page serves as the official documentation developed by UMFST (University of Medicine, Pharmacy, Science and Technology of Targu Mures), as part of the 
 DIAS (Diagnostic Anti-Tampering Systems) H2020 project.
 
-This documentation is a follow up to `Getting Started with Kuksa <https://dias-kuksa-doc.readthedocs.io>`_ describing how to install, configure and use, UMFST's Firewall, Intrusion Detection System, and Secure Logging solutions, in conjunction with the Kuksa setup described in the previous mentioned link. As the project progresses, the current documentation and source codes used here may suffer changes. 
+This documentation is a follow up to `Getting Started with Kuksa <https://dias-kuksa-doc.readthedocs.io>`_ describing how to install, configure and use, UMFST's Firewall, Intrusion Detection System, and Secure Logging solutions (in the future), in conjunction with the Kuksa setup described in the previous mentioned link. As the project progresses, the current documentation and source codes used here may suffer changes. 
 
 The reader is advised to follow the sections below in sequence, since there are dependencies between a step, and a previous one. For example, the Firewall requires a physical or virtual CAN (Controller Area Network) interface from where it can read CAN frames. Similarly to use the Secure Logging, a physical or virtual TPM (Trusted Platform Module) must be configured.
  
@@ -21,8 +21,7 @@ The reader is advised to follow the sections below in sequence, since there are 
    setup
    run
    rules
-   logging
-
+   cloud
 
 Research
 ---------

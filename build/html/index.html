@@ -92,7 +92,7 @@
 <li class="toctree-l1"><a class="reference internal" href="setup.html">2. Firewall and IDS Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="run.html">3. Simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rules.html">4. Rule language</a></li>
-<li class="toctree-l1"><a class="reference internal" href="logging.html">5. Secure logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cloud.html">5. Cloud Setup</a></li>
 </ul>
 
             
@@ -164,19 +164,22 @@
 <h1>Welcome to DIAS UMFST How To’s documentation!<a class="headerlink" href="#welcome-to-dias-umfst-how-to-s-documentation" title="Permalink to this headline">¶</a></h1>
 <p>The current page serves as the official documentation developed by UMFST (University of Medicine, Pharmacy, Science and Technology of Targu Mures), as part of the
 DIAS (Diagnostic Anti-Tampering Systems) H2020 project.</p>
-<p>This documentation is a follow up to <a class="reference external" href="https://dias-kuksa-doc.readthedocs.io">Getting Started with Kuksa</a> describing how to install, configure and use, UMFST’s Firewall, Intrusion Detection System, and Secure Logging solutions, in conjunction with the Kuksa setup described in the previous mentioned link. As the project progresses, the current documentation and source codes used here may suffer changes.</p>
+<p>This documentation is a follow up to <a class="reference external" href="https://dias-kuksa-doc.readthedocs.io">Getting Started with Kuksa</a> describing how to install, configure and use, UMFST’s Firewall, Intrusion Detection System, and Secure Logging solutions (in the future), in conjunction with the Kuksa setup described in the previous mentioned link. As the project progresses, the current documentation and source codes used here may suffer changes.</p>
 <p>The reader is advised to follow the sections below in sequence, since there are dependencies between a step, and a previous one. For example, the Firewall requires a physical or virtual CAN (Controller Area Network) interface from where it can read CAN frames. Similarly to use the Secure Logging, a physical or virtual TPM (Trusted Platform Module) must be configured.</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="introduction.html#requirements">1.1 Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#can-interface">1.1.2 CAN interface</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="setup.html">2. Firewall and IDS Setup</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="setup.html#installation">2.1 Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="setup.html#helper-processes">2.2 Helper processes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="setup.html#configuration-file">2.3 Configuration file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#configuration-files">2.3 Configuration files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#firewall-ids">2.3.1 Firewall/IDS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#pycan">2.3.2 Pycan</a></li>
 <li class="toctree-l2"><a class="reference internal" href="setup.html#using-the-service">2.4 Using the service</a></li>
 </ul>
 </li>
@@ -184,29 +187,29 @@ DIAS (Diagnostic Anti-Tampering Systems) H2020 project.</p>
 <li class="toctree-l2"><a class="reference internal" href="run.html#requirements">3.1 Requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="run.html#simulating-the-can">3.2 Simulating the CAN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="run.html#capturing-events">3.3 Capturing events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="run.html#manual-testing">3.4 Manual testing</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rules.html">4. Rule language</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="rules.html#terms-and-keywords">4.1 Terms and keywords</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rules.html#rules-chains">4.2 Rules chains</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rules.html#state-chains">4.3 State chains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rules.html#state-chains">4.2 State chains</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="logging.html">5. Secure logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cloud.html">5. Cloud Setup</a></li>
 </ul>
 </div>
 <div class="section" id="research">
 <h2>Research<a class="headerlink" href="#research" title="Permalink to this headline">¶</a></h2>
 <p>To be updated…</p>
 </div>
-<div class="section" id="awknowledgement">
-<h2>Awknowledgement<a class="headerlink" href="#awknowledgement" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="acknowledgement">
+<h2>Acknowledgement<a class="headerlink" href="#acknowledgement" title="Permalink to this headline">¶</a></h2>
 <p>This work was funded by the European Union’s Horizon 2020 Research and Innovation Programme through DIAS project under Grant Agreement No. 814951.
 This document reflects only the author’s view and the Agency is not responsible for any use that may be made of the information it contains</p>
 </div>
 <div class="section" id="authors">
 <h2>Authors<a class="headerlink" href="#authors" title="Permalink to this headline">¶</a></h2>
-<p>Authors can found and contacted on: <strong>https://nislab.umfst.ro/</strong></p>
+<p>Authors can be found and contacted on: <strong>https://nislab.umfst.ro/</strong></p>
 </div>
 </div>
 
