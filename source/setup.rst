@@ -33,11 +33,14 @@ and
 The Firewall/IDS process uses two additional helper processes. 
 
 1. Pycan: a process that listens to a CAN interface (e.g. vcan0, /dev/can0), reading incomming frames, extracting their ID and DATA field, and then forwarding the preprocessed data, via a named pipe, to the Firewall/IDS process. The named location of the named pipe can be set in the configuration file, described in the next section. Furthermore, the recieved frames are forworded to another CAN interface (e.g. vcan1, /dev/can1).
+
 2. Secure Logging: a additional process, that can be enabled if there is support for a physical or virtual Trusted Platform Module (TPM). This process will only be used by the Firewall/IDS only if in the configuration file is specified to do so. 
 
+3. Log Publisher: monitors the logs produced by the FW/IDS and publishes them via MQTT to Bosch IoT Hub.
 
-2.3 Configuration files
------------------------
+
+2.3 Configuration
+-----------------
 
 2.3.1 Firewall/IDS
 ------------------
@@ -59,10 +62,28 @@ The pycan configuration file *config.py* is located in */etc/diasfw/*. The param
 * *CAN_CHANNEL_SEND* : the process will forward the incomming frames to this interface. For the current demo those frames will not be used. If a combination of physical interface and virutal interface was chosen than the value for this parameter should be the virtual interface (e.g., VCAN0), else if a combination of two  virutal interfaces was chosen than the value for this parameter should be VCAN1.
 * *LOGFILE* : the location of the pycan log file.
 
-2.4 Using the service
----------------------
+2.3.3 Log Publisher
+-------------------
 
-After installing the *deb* package, two services will be created, namely *diasfw* and *pycan*. Starting/stopping/restarting the services can be done using *systemctl* (e.g., systemctl start pycan, systemctl start diasfw).
+In order to be able to publish data to the Bosch IoT Hub, the Log Publisher process requires several parameters:
+
+* client_id: Bosch IoT Hub client id under the form <auth_id>@<tenant_id>.Client needs to be registered via the Bosch IoT Hub - Management Interface. Example: client@t6906174622ffXXXXXXXXX1fefc53459 .
+* password: Bosch IoT Hub client password. Generated during device creation on Bosch IoT Hub - Management Interface.
+* host: Remote MQTT host of Bosch IoT Hub. Usually is mqtt.bosch-iot-hub.com.
+* port: Remote MQTT port of Bosch IoT Hub. Usually is 8883.
+* cafile: Path to the ca file obtained from Bosch IoT Hub.
+* log_file: Path to the FW/IDS log file (/var/log/diasfw/diasfw.log).
+
+The *cafile* can be downloaded using:
+
+.. code-block:: bash
+
+   curl -o iothub.crt https://docs.bosch-iot-suite.com/hub/iothub.crt 
+
+2.4 Using the services
+----------------------
+
+After installing the *deb* package, three services will be created, namely *diasfw*, *pycan*, and *logpublisher*. Starting/stopping/restarting the services can be done using *systemctl* (e.g., systemctl start pycan, systemctl start diasfw).
 
 The two services are configured to start in the follwing order: pycan, diasfw. To set them to start at boot-up run the following:
 
@@ -70,6 +91,7 @@ The two services are configured to start in the follwing order: pycan, diasfw. T
 
    systemctl enable pycan
    systemctl enable diasfw
+   systemctl enable logpublisher
 
 For demo purposes you can start them manually, after installing the *deb* package, by running the following:
 
@@ -77,6 +99,7 @@ For demo purposes you can start them manually, after installing the *deb* packag
 
    systemctl start pycan
    systemctl start diasfw
+   systemctl start logpublisher
    
 At this point we recommend opening two additional terminals and tailing the log files.
 

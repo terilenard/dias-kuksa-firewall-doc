@@ -93,15 +93,16 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">2. Firewall and IDS Setup</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#installation">2.1 Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#helper-processes">2.2 Helper processes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#configuration-files">2.3 Configuration files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration">2.3 Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#firewall-ids">2.3.1 Firewall/IDS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pycan">2.3.2 Pycan</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-the-service">2.4 Using the service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#log-publisher">2.3.3 Log Publisher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-the-services">2.4 Using the services</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="run.html">3. Simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rules.html">4. Rule language</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cloud.html">Cloud Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cloud.html">5. Cloud Setup</a></li>
 </ul>
 
             
@@ -194,10 +195,11 @@ sudo apt -f install
 <ol class="arabic simple">
 <li><p>Pycan: a process that listens to a CAN interface (e.g. vcan0, /dev/can0), reading incomming frames, extracting their ID and DATA field, and then forwarding the preprocessed data, via a named pipe, to the Firewall/IDS process. The named location of the named pipe can be set in the configuration file, described in the next section. Furthermore, the recieved frames are forworded to another CAN interface (e.g. vcan1, /dev/can1).</p></li>
 <li><p>Secure Logging: a additional process, that can be enabled if there is support for a physical or virtual Trusted Platform Module (TPM). This process will only be used by the Firewall/IDS only if in the configuration file is specified to do so.</p></li>
+<li><p>Log Publisher: monitors the logs produced by the FW/IDS and publishes them via MQTT to Bosch IoT Hub.</p></li>
 </ol>
 </div>
-<div class="section" id="configuration-files">
-<h2>2.3 Configuration files<a class="headerlink" href="#configuration-files" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="configuration">
+<h2>2.3 Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="firewall-ids">
 <h2>2.3.1 Firewall/IDS<a class="headerlink" href="#firewall-ids" title="Permalink to this headline">¶</a></h2>
@@ -219,17 +221,35 @@ sudo apt -f install
 <li><p><em>LOGFILE</em> : the location of the pycan log file.</p></li>
 </ul>
 </div>
-<div class="section" id="using-the-service">
-<h2>2.4 Using the service<a class="headerlink" href="#using-the-service" title="Permalink to this headline">¶</a></h2>
-<p>After installing the <em>deb</em> package, two services will be created, namely <em>diasfw</em> and <em>pycan</em>. Starting/stopping/restarting the services can be done using <em>systemctl</em> (e.g., systemctl start pycan, systemctl start diasfw).</p>
+<div class="section" id="log-publisher">
+<h2>2.3.3 Log Publisher<a class="headerlink" href="#log-publisher" title="Permalink to this headline">¶</a></h2>
+<p>In order to be able to publish data to the Bosch IoT Hub, the Log Publisher process requires several parameters:</p>
+<ul class="simple">
+<li><p>client_id: Bosch IoT Hub client id under the form &lt;auth_id&gt;&#64;&lt;tenant_id&gt;.Client needs to be registered via the Bosch IoT Hub - Management Interface. Example: <a class="reference external" href="mailto:client&#37;&#52;&#48;t6906174622ffXXXXXXXXX1fefc53459">client<span>&#64;</span>t6906174622ffXXXXXXXXX1fefc53459</a> .</p></li>
+<li><p>password: Bosch IoT Hub client password. Generated during device creation on Bosch IoT Hub - Management Interface.</p></li>
+<li><p>host: Remote MQTT host of Bosch IoT Hub. Usually is mqtt.bosch-iot-hub.com.</p></li>
+<li><p>port: Remote MQTT port of Bosch IoT Hub. Usually is 8883.</p></li>
+<li><p>cafile: Path to the ca file obtained from Bosch IoT Hub.</p></li>
+<li><p>log_file: Path to the FW/IDS log file (/var/log/diasfw/diasfw.log).</p></li>
+</ul>
+<p>The <em>cafile</em> can be downloaded using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -o iothub.crt https://docs.bosch-iot-suite.com/hub/iothub.crt
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-the-services">
+<h2>2.4 Using the services<a class="headerlink" href="#using-the-services" title="Permalink to this headline">¶</a></h2>
+<p>After installing the <em>deb</em> package, three services will be created, namely <em>diasfw</em>, <em>pycan</em>, and <em>logpublisher</em>. Starting/stopping/restarting the services can be done using <em>systemctl</em> (e.g., systemctl start pycan, systemctl start diasfw).</p>
 <p>The two services are configured to start in the follwing order: pycan, diasfw. To set them to start at boot-up run the following:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl <span class="nb">enable</span> pycan
 systemctl <span class="nb">enable</span> diasfw
+systemctl <span class="nb">enable</span> logpublisher
 </pre></div>
 </div>
 <p>For demo purposes you can start them manually, after installing the <em>deb</em> package, by running the following:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl start pycan
 systemctl start diasfw
+systemctl start logpublisher
 </pre></div>
 </div>
 <p>At this point we recommend opening two additional terminals and tailing the log files.</p>
