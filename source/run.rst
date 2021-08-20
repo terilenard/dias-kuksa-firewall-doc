@@ -4,7 +4,7 @@
 3.1 Requirements
 ----------------
 
-In order to run and test that the FW/IDS run accordingly, there are several requirements that must be present:
+In order to run and test that the FW/IDS run accordingly, there are several requirements:
 
 * The FW/IDS process should be installed (see previous step).
 * The FW/IDS *pycan* process should be installed (see previous step). The FW/IDS can run without SecureLogging, if it is specified in config file.
@@ -51,7 +51,7 @@ For this porpoise one can use `cansend <https://manpages.debian.org/testing/can-
 
 Usage example:
 
-Let`s assume that a new PERMIT and LOG rule was added to the Firewall/IDS, for CID 123, with the conditions that the first payload byte has the value 01 and the second payload byte the value in range 00-AA. Using *cansend* we will send a frame with CID 123 and payload 01 10. The Firewall/IDS will filter the frame and display/log the event.
+Let`s assume that a new *PERMIT_and_LOG* rule was added to the Firewall/IDS, for CAN identifier (CID) 123, with the conditions that the first payload byte has the value 01 and the second payload byte the value in range 00-AA. Using *cansend* we will send a frame with CID 123 and payload 01 10. The Firewall/IDS will filter the frame and display/log the event.
 
 .. code-block:: bash
 
