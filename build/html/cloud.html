@@ -92,7 +92,13 @@
 <li class="toctree-l1"><a class="reference internal" href="setup.html">2. Firewall and IDS Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="run.html">3. Simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rules.html">4. Rule language</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Cloud Setup</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Cloud Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#requirements">5.1 Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#influxdb-setup">5.2 InfluxDB Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hono-consumer-setup">5.3 Hono Consumer Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#grafana-setup">5.4 Grafana Setup</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -162,6 +168,24 @@
             
   <div class="section" id="cloud-setup">
 <h1>5. Cloud Setup<a class="headerlink" href="#cloud-setup" title="Permalink to this headline">¶</a></h1>
+<p>The cloud setup follows a similar approach to the one described in the <a class="reference external" href="https://dias-kuksa-doc.readthedocs.io/en/latest/contents/cloud.html">DIAS Kuksa setup, Step 3: Cloud Setup</a>. MQTT data published by the mqtt client will be received in the Bosch IoT Hub, where a Hono entry point exists. A Hono consumer will read the data from the hub, and saves it into a InfluxDB table. After that, Grafana reads the data saved into the database, and displays its content.</p>
+<div class="section" id="requirements">
+<h2>5.1 Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>To follow this page, several things are required.</p>
+<ul class="simple">
+<li><p>A Bosch IoT Hub subscription. If you don’t have one a detailed guide on how to obtain one can be found <a class="reference external" href="https://dias-kuksa-doc.readthedocs.io/en/latest/contents/cloud.html#bosch-iot-hub-as-hono">here</a>.</p></li>
+<li><p>A secondary Raspberry Pi, or a Ubuntu Virtual Machine</p></li>
+</ul>
+</div>
+<div class="section" id="influxdb-setup">
+<h2>5.2 InfluxDB Setup<a class="headerlink" href="#influxdb-setup" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="hono-consumer-setup">
+<h2>5.3 Hono Consumer Setup<a class="headerlink" href="#hono-consumer-setup" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="grafana-setup">
+<h2>5.4 Grafana Setup<a class="headerlink" href="#grafana-setup" title="Permalink to this headline">¶</a></h2>
+</div>
 </div>
 
 
