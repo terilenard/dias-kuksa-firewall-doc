@@ -14,7 +14,7 @@ To follow this page, several things are required:
 5.2 InfluxDB Setup
 ------------------
 
-For the present use case, InfluxDB will be used to 
+For the present use case, InfluxDB will be used to store logs published by *LogPublisher* to Bosch IoT Hub, as data time series. 
 
 Ubuntu setup:
 
@@ -55,6 +55,13 @@ Raspberry Pi setup:
 5.3 Hono Consumer Setup
 -----------------------
 
+The Hono consumer client is meant to read log data published to Bosch IoT Hub, and write it in Influxdb. The client can be installed and compiled manually, or via a Docker.
+
+Manual setup:
+
+Docker setup:
+
+
 5.4 Grafana Setup
 -----------------
 
@@ -93,6 +100,6 @@ Raspberry Pi setup:
 
     sudo systemctl start grafana-server
 
-Grafana can be access via a web browser on http://<local-ip>:3000. The default login username is *admin* and default login password is *admin* .
+Grafana can be access via a web browser on *http://<local-ip>:3000*. The default login username is *admin* and default login password is *admin*.
 
 
