@@ -7,7 +7,7 @@ A pattern is defined as an *action rule*, which ultimately is applied on every d
 4.1 Terms and keywords
 ----------------------
 
-1. **Rule file** : an XML file containing the definitions for the *rules*, *actions* as well as the way the rules are chained togheter creating the *rule-chains* and *state-chains*
+1. **Rule file** : an XML file containing the definitions for the *rules*, *actions* as well as the way the rules are chained togheter creating the *rule-chains* and *state-chains*.
 2. **Rule** : a pattern searched within an incoming CAN frame. Each rule is bound to an *action*, which in term triggers an event if a pattern is found.   
 3. **Action** : the operation that must take place as a consequence to a specific event. An action can have one of the four values: PERMIT, DROP, PERMIT-LOG and DROP-LOG.
  a. *PERMIT* : the incomming frame should be allowed to pass.
@@ -37,7 +37,7 @@ A pattern is defined as an *action rule*, which ultimately is applied on every d
       </rule>
 
     The above rule (IDS) will DROP all frames with the CID 291 (123 in hex) if the first byte from the payload
-    has the value 1 and the second byte has a value in the range [1,170]
+    has the value 1 and the second byte has a value in the range [1,170].
 
 4.2 State chains
 ----------------
