@@ -10,7 +10,7 @@ To follow this page, several things are required:
 
 * A Bosch IoT Hub subscription. If you don't have one a detailed guide on how to obtain one can be found `here <https://dias-kuksa-doc.readthedocs.io/en/latest/contents/cloud.html#bosch-iot-hub-as-hono>`_.
 * A Ubuntu Virtual Machine.
-* Docker. Instalation guide can be found on `this link <https://docs.docker.com/engine/install/ubuntu/>_`.
+* Docker. Instalation guide can be found on `this link `<https://docs.docker.com/engine/install/ubuntu/>_`.
 
 5.2 InfluxDB Setup
 ------------------
