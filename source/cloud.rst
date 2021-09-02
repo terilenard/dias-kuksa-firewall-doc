@@ -10,6 +10,7 @@ To follow this page, several things are required:
 
 * A Bosch IoT Hub subscription. If you don't have one a detailed guide on how to obtain one can be found `here <https://dias-kuksa-doc.readthedocs.io/en/latest/contents/cloud.html#bosch-iot-hub-as-hono>`_.
 * A secondary Raspberry Pi, or a Ubuntu Virtual Machine.
+* Docker. Instalation guide can be found on `this link <https://docs.docker.com/engine/install/ubuntu/>_`.
 
 5.2 InfluxDB Setup
 ------------------
@@ -59,7 +60,28 @@ The Hono consumer client is meant to read log data published to Bosch IoT Hub, a
 
 Manual setup:
 
+.. code-block:: bash
+
+    git clone https://github.com/terilenard/dias-cloud-umfst.git 
+
+    cd dias-cloud-umfst/Consumer
+
+    mvn clean package -DskipTests  # Build the project
+
+    java -jar target/maven.consumer.hono-0.0.1-SNAPSHOT.jar --hono.client.tlsEnabled=true --hono.client.username=messaging@<tenant_id> --hono.client.password=<password> --tenant.id=<tenant_id> --device.id=<deviceId> --export.ip=localhost:8086
+
+
 Docker setup:
+
+.. code-block:: bash
+
+    git clone https://github.com/terilenard/dias-cloud-umfst.git 
+
+    cd dias-cloud-umfst/Consumer
+
+    docker build -t hono-log-consumer .
+
+    docker run -p 8081:8081 -t hono-influxdb-connector --hono.client.tlsEnabled=true --hono.client.username=messaging@t6906174622ff488ba9b97d1fefc53459 --hono.client.password=1234 --tenant.id=t6906174622ff488ba9b97d1fefc53459 --device.id=1234 --export.ip=influxdb:8086
 
 
 5.4 Grafana Setup
@@ -102,4 +124,4 @@ Raspberry Pi setup:
 
 Grafana can be access via a web browser on *http://<local-ip>:3000*. The default login username is *admin* and default login password is *admin*.
 
-
+To view the data saved in InfluxDB in Grafana, a new *Panel* must be created. To extract all logs, under *Query* tab, modify the query statement as _SELECT * from logs_. After that modify the *Panel Options*
