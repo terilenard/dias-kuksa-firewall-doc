@@ -84,7 +84,8 @@ Ubuntu setup of Grafana can be found `here <https://dias-kuksa-doc.readthedocs.i
     sudo apt-get update
 
     sudo apt-get install grafana
-
+    
+    sudo systemctl start grafana-server
 
 Grafana can be access via a web browser on *http://<local-ip>:3000*. The default login username is *admin* and default login password is *admin*.
 
