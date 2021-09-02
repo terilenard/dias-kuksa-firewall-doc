@@ -57,3 +57,4 @@ Let`s assume that a new *PERMIT_and_LOG* rule was added to the Firewall/IDS, for
 .. code-block:: bash
 
  cansend vcan0 123#0110
+ cansend vcan0 124#0110
