@@ -21,7 +21,7 @@ Ubuntu setup:
 
 .. code-block:: bash
     
-    sudo apt install curl
+    sudo apt install curl git
 
     curl -s https://repos.influxdata.com/influxdb.key | gpg --dearmor > /etc/apt/trusted.gpg.d/influxdb.gpg
 
