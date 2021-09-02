@@ -108,6 +108,6 @@ Don't forget to save your changes by clicking *Apply*, on the top right button, 
 
 If everything is successful you should be able to see the logs in grafana as follows:
 
-.. image:: /source/grafana.png
+.. image:: /grafana.png
   :width: 1200
   :alt: Grafana
