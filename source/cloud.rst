@@ -89,4 +89,13 @@ Ubuntu setup of Grafana can be found `here <https://dias-kuksa-doc.readthedocs.i
 
 Grafana can be access via a web browser on *http://<local-ip>:3000*. The default login username is *admin* and default login password is *admin*.
 
+First off all, InfluxDB must be linked with Grafana. On the main page, select *Data Source* square, and click on the row associated with InfluxDB. Here the following fields must be set to:
+
+* URL: http://localhost:8086
+* DATABASE: dias_log
+* User: admin
+* Password: admin
+
+and then Save.
+
 To view the data saved in InfluxDB in Grafana, a new *Panel* must be created. To extract all logs, under *Query* tab, modify the query statement as **SELECT \* from logs**. After that modify in the *Panel Options*, on the left side of the editing page, the *Visualizations* style into *Logs*. This is set by default to *Time series*. Don't forget to save your changes by clicking *Apply* on the top right button.
