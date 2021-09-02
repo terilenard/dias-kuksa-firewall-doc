@@ -98,4 +98,7 @@ First off all, InfluxDB must be linked with Grafana. On the main page, select *D
 
 and then Save.
 
-To view the data saved in InfluxDB in Grafana, a new *Panel* must be created. To extract all logs, under *Query* tab, modify the query statement as **SELECT \* from logs**. After that modify in the *Panel Options*, on the left side of the editing page, the *Visualizations* style into *Logs*. This is set by default to *Time series*. Don't forget to save your changes by clicking *Apply* on the top right button.
+To view the data saved in InfluxDB in Grafana, a new *Panel* must be created. 
+To extract all logs, under *Query* tab, modify the query statement as **SELECT "time","value" FROM logs;**. 
+After that modify in the *Panel Options*, on the left side of the editing page, the *Visualizations* style into *Logs*. This is set by default to *Time series*. 
+Don't forget to save your changes by clicking *Apply*, on the top right button, after every step.
