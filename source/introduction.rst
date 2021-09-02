@@ -16,13 +16,11 @@ For the in-vehicle setup one of the following options can be used:
 
 As for the cloud setup:
 
-1. A second Raspberry Pi 3/4 with Raspbian
+1. Ubuntu Virtual machine
 
-2. Ubuntu Virtual machine
+2. Subscription on `Bosch IoT Hub <https://docs.bosch-iot-suite.com/hub/getting-started/subscribe/>`_
 
-3. Subscription on `Bosch IoT Hub <https://docs.bosch-iot-suite.com/hub/getting-started/subscribe/>`_
-
-The rest of the steps, were tested on Raspberry Pi's 3 and 4. If a Ubuntu VM is chosen, some configurations may, a CAN interface may not be available, thus only a virtual one could be used. This is not a issue since the modules described in the following are meant to work with virtual equivalents for: CAN interfaces (virtual CAN) and Trusted Platform Module (virtual TPM). 
+The rest of the steps, were tested on Raspberry Pi's 3 and 4. If a Ubuntu VM is chosen as a in-vehicle setup, some configurations may differ, access to a physical CAN may not be available, thus only a virtual one could be used. This is not a issue since the modules described in the following are meant to work with virtual equivalents for: CAN interfaces (virtual CAN) and Trusted Platform Module (virtual TPM). 
 
 1.1.2 CAN interface
 -------------------
