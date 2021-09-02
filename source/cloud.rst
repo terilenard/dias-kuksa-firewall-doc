@@ -110,4 +110,4 @@ If everything is successful you should be able to see the logs in grafana as fol
 
 .. image:: /source/grafana.png
   :width: 1200
-  :alt: Graafna
+  :alt: Grafana
