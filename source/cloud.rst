@@ -108,6 +108,6 @@ Don't forget to save your changes by clicking *Apply*, on the top right button, 
 
 If everything is successful you should be able to see the logs in grafana as follows:
 
-.. image:: https://github.com/terilenard/dias-kuksa-umfst-doc/blob/3272f8ecd31d14724158407b8995054f1eabfcf1/source/grafana.png
+.. image:: /source/grafana.png
   :width: 1200
   :alt: Graafna
