@@ -63,8 +63,7 @@ Docker setup:
 
     docker build -t hono-log-consumer .
 
-    docker run -p 8081:8081 -t hono-influxdb-connector --hono.client.tlsEnabled=true --hono.client.username=messaging@t6906174622fXXXXX7d1fefc53459 --hono.client.password=1234 --tenant.id=t6906174622ff488ba9b97d1fefXXXX --device.id=1234 --export.ip=influxdb:8086
-
+    docker run -p 8081:8081 -t hono-log-consumer --hono.client.tlsEnabled=true --hono.client.username=messaging@t6906174622ff488ba9b97d1fefc53459 --hono.client.password=dsbvXtn5fImqNUGa88kw --tenant.id=t6906174622ff488ba9b97d1fefc53459 --device.id=1234 --server.url=http://<VM IP>:8086
 
 5.4 Grafana Setup
 -----------------
