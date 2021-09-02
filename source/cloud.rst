@@ -105,3 +105,9 @@ To extract all logs, under *Query* tab, modify the query statement as **SELECT "
 After that modify in the *Panel Options*, on the left side of the editing page, the *Visualizations* style into *Logs*. This is set by default to *Time series*. 
 
 Don't forget to save your changes by clicking *Apply*, on the top right button, after every step.
+
+If everything is successful you should be able to see the logs in grafana as follows:
+
+.. image:: https://github.com/terilenard/dias-kuksa-umfst-doc/blob/3272f8ecd31d14724158407b8995054f1eabfcf1/source/grafana.png
+  :width: 1200
+  :alt: Graafna
