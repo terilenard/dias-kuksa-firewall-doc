@@ -124,4 +124,4 @@ Raspberry Pi setup:
 
 Grafana can be access via a web browser on *http://<local-ip>:3000*. The default login username is *admin* and default login password is *admin*.
 
-To view the data saved in InfluxDB in Grafana, a new *Panel* must be created. To extract all logs, under *Query* tab, modify the query statement as _SELECT * from logs_. After that modify the *Panel Options*
+To view the data saved in InfluxDB in Grafana, a new *Panel* must be created. To extract all logs, under *Query* tab, modify the query statement as _SELECT * from logs_. After that modify in the *Panel Options*, on the left side of the editing page, the *Visualizations* style into *Logs*. This is set by default to *Time series*. Don't forget to save your changes by clicking *Apply* on the top right button.
