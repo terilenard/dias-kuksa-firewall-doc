@@ -26,7 +26,8 @@ The reader is advised to follow the sections below in sequence, since there are 
 Research
 ---------
 
-To be updated...
+Teri Lenard and Roland Bolboaca. 2021. A Statefull Firewall and Intrusion Detection System Enforced with Secure Logging for Controller Area Network. European Interdisciplinary Cybersecurity Conference. Association for Computing Machinery, New York, NY, USA, 39–45. DOI:https://doi.org/10.1145/3487405.3487650
+
 
 Acknowledgement
 ---------------
